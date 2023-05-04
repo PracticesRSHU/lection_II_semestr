@@ -1,6 +1,10 @@
+#python -m pip install matplotlib
+# pip install matplotlib
 import matplotlib.pyplot as plt
 from numpy import *
-# plt.plot([2,5,4,8])
+# x=[2,5,4,8]
+# plt.plot(x)
+# plt.xticks(range(len(x)),["I","II","III","IV"])
 # plt.show()
 from numpy import cos, sin
 import numpy as nm
@@ -23,12 +27,12 @@ def f(x):
 # plt.legend()
 # plt.show()
 
-# # x=linspace(-4,4,41)
-# x=arange(-4,4,0.2)
+# x=nm.linspace(-4,4,41)
+# # x=arange(-4,4,0.2)
 # print(x)
 # y1=cos(x)
 # y2=sin(x)
-#
+# #
 # plt.plot(x,y1,'green',label='y=cosx')
 # plt.plot(x,y2,'blue',label='y=sinx')
 # plt.axis([-5,5,-2,2])
@@ -37,18 +41,20 @@ def f(x):
 # plt.legend()
 # plt.show()
 
-# #x=linspace(-4,4,41)
+# # #x=linspace(-4,4,41)
 x=arange(-4,4,0.2)
 print(x)
 y1=cos(x)
 y2=sin(x)
 
-plt.plot(x,y1,'g--',label='y=cosx')
+plt.plot(x,y1,label='y=cosx', color="green", linestyle='--',marker="H")
 plt.plot(x,y2,'bo',label='y=sinx')
 plt.axis([-5,5,-2,2])
 plt.xlabel("x")
 plt.ylabel("y")
-plt.legend(loc='upper left')
+plt.legend(loc='upper left') #lower right
 plt.grid(True)
-plt.savefig("figure1.png",dpi=100)
+plt.savefig("figure2.png",dpi=100)
 plt.show()
+
+

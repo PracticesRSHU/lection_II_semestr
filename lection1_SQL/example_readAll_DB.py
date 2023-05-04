@@ -1,4 +1,5 @@
 import sqlite3
+#CRUD create (insert) , read (select), update (update), delete (delete)
 import pandas as pd
 #приклад використання модуля os для роботи з файлами
 # import os
@@ -10,36 +11,39 @@ import pandas as pd
 
 # conn = sqlite3.connect('ishop.db')
 # curs = conn.cursor()
-# curs.execute('''SELECT * FROM сomputers ''')
+# curs.execute('''SELECT * FROM computers WHERE name='HHH' ''')
 # conn.commit()
 # rows = curs.fetchall()
 # print(len(rows))
+# print(type(rows))
 # for row in rows:
+#     print(row)
 #     print("id: ", row[0]," marka: ", row[1]," count: ", row[2], " price: ",row[3])
 # curs.close()
 # conn.close()
 
 #вибірка з однієї таблиці
-# conn = sqlite3.connect(db_file)
+# conn = sqlite3.connect("ishop.db")
 # curs = conn.cursor()
-# curs.execute("DELETE FROM сomputers WHERE price>11000")
+# curs.execute("DELETE FROM computers WHERE price>11000")
 # conn.commit()
 # curs.close()
 # conn.close()
 
-pd.options.display.max_columns=10
-
-# вибірка з кількох таблиць
+# pd.options.display.max_columns=10
+#
+# # вибірка з кількох таблиць
 conn = sqlite3.connect('ishop.db')
 curs = conn.cursor()
-curs.execute('''SELECT  o.id, o.date_order, u.secondname, c.name,c.price FROM  orders as o 
-                JOIN users as u ON u.id=o.user_id 
+curs.execute('''SELECT  o.id, o.date_order, u.firstname, c.name,c.price 
+                FROM orders as o
+                JOIN users as u ON u.id=o.user_id
                 JOIN computers as c ON c.id=o.computers_id ;''')
 # print(pd.read_sql('''SELECT  o.id, o.date_order, u.secondname, c.name,c.price FROM  orders as o
 #                 JOIN users as u ON u.id=o.user_id
 #                 JOIN computers as c ON c.id=o.computers_id
 #                 WHERE o.id=2;''',conn))
-# conn.commit()
+conn.commit()
 rows = curs.fetchall()
 print(len(rows))
 print(rows)

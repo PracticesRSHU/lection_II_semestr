@@ -1,3 +1,4 @@
+#DDL SQL
 """
 Cтворимо базу даних ishop.db
 і таблицю сomputers, яка буде містити інформацію про товари інтернет-магазину комп’ютерної техніки. У таблиці будуть міститися такі поля:
@@ -31,7 +32,7 @@ curs.execute('''CREATE TABLE users (
             secondname VARCHAR(20) NOT NULL,
             adress VARCAHR(50) NOT NULL)''')
 
-curs.execute('''CREATE TABLE computers (
+curs.execute('''CREATE TABLE computers(
             id INT PRIMARY KEY,
             name VARCHAR(20),
             count INT,
